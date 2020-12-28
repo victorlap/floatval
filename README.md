@@ -4,7 +4,7 @@
 [![Software License][ico-license]](LICENSE.md)
 [![Total Downloads][ico-downloads]][link-downloads]
 
-This is a library based on the `tofloat` function originally from http://codepad.org/hBpKZC5C 
+Correctly parse float like strings to float values. This library is based on the `tofloat` function originally from http://codepad.org/hBpKZC5C .
 
 ## Install
 
