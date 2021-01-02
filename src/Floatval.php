@@ -8,6 +8,10 @@ class Floatval
 {
     public static function parse(string $string): float
     {
+        if (preg_match('/[\d+][eE][+-]?[\d+]/', $string)) {
+            return self::parseExponential($string);
+        }
+
         if (!$separatorPosition = self::getSeparatorPosition($string)) {
             return (float)preg_replace("/[^\-\d]/", "", $string);
         }
@@ -37,5 +41,12 @@ class Floatval
         }
 
         return null;
+    }
+
+    private static function parseExponential(string $string): ?float
+    {
+        $parts = preg_split('/[e|E]/', $string, 2);
+
+        return self::parse($parts[0]) * (10 ** self::parse($parts[1]));
     }
 }
